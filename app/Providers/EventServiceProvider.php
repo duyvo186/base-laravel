@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\InvoiceProcessed;
+use App\Listeners\SendInvoiceNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Event::listen(
+            InvoiceProcessed::class,
+            [SendInvoiceNotification::class, 'handle']
+        );
     }
 }
