@@ -19,6 +19,7 @@ return [
         'title' => [
             'index' => 'Invoice List',
             'view' => 'Invoice Detail',
+            'create' => 'Add Product Or Update In Invoice',
             'invoiceSearch' => 'Search In Invoice',
 
         ],
@@ -33,5 +34,13 @@ return [
         ],
 
     ],
+    'category' => [
+        'title' => [
+            'index' => 'Category List',
+            'edit' => 'Edit Category',
+            'create' => 'Create Category',
+
+        ]
+    ]
 
 ];
