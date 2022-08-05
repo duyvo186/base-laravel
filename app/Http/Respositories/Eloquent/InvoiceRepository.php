@@ -18,7 +18,7 @@ class InvoiceRepository extends BaseRepository implements InvoiceRepositoryInter
         $this->model = $model;
     }
 
-    public function findIdWithRelationship($invoiceId)
+    public function deleteWithRelationship($invoiceId)
     {
         return $this->model->with('invoiceProducts')->find($invoiceId)->delete();
     }

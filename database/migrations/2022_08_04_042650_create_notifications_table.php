@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInvoiceProductsTable extends Migration
+class CreateNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateInvoiceProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('invoice_products', function (Blueprint $table) {
+        Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->integer('invoice_id');
-            $table->integer('product_id');
-            $table->integer('quantity');
-            $table->integer('total');
+            $table->integer('customer_id');
+            $table->string('content');
+            $table->integer('status');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateInvoiceProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('invoice_products');
+        Schema::dropIfExists('notifications');
     }
 }

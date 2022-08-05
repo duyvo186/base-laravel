@@ -27,16 +27,6 @@ class BaseRepository
         return $this->model;
     }
 
-    public function getAll()
-    {
-        return $this->model->newModelQuery()->get();
-    }
-
-    public function getByConditions(array $array)
-    {
-        return $this->model->newModelQuery()->where($array)->get();
-    }
-
     public function find($id)
     {
         return $this->getModel()::find($id);
@@ -51,6 +41,24 @@ class BaseRepository
     {
         return $this->model->newModelQuery()->create($data);
     }
+    public function create(array $data)
+    {
+        return $this->model->newModelQuery()->insert($data);
+    }
+    public function getAll()
+    {
+        return $this->model->newModelQuery()->get();
+    }
+
+    public function update(array $data, $id)
+    {
+        $result = $this->getModel()::find($id);
+        if ($result) {
+            $result->update($data);
+            return true;
+        }
+        return false;
+    }
 
     public function updateMass(array $data, array $conditions)
     {
@@ -62,14 +70,8 @@ class BaseRepository
         return false;
     }
 
-    public function update(array $data, $id)
+    public function getByConditions(array $array)
     {
-        $result = $this->getModel()::find($id);
-        if ($result) {
-            $result->update($data);
-
-            return true;
-        }
-        return false;
+        return $this->model->newModelQuery()->where($array)->get();
     }
 }

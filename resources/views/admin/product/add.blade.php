@@ -54,14 +54,6 @@
                 <div class="valid-feedback">Looks good!</div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="menu">Image Product</label>
-            <input type="file" class="form-control" id="uploadimg">
-            <div id="image_show">
-            </div>
-            <input type="hidden" name="thumb" id="thumb">
-        </div>
-        <!-- Default radio -->
         <div class="form-check">
             <input class="form-check-input" value="1" id="active" type="radio" name="active"/>
             <label class="form-check-label" for="flexRadioDefault1"> Có </label>

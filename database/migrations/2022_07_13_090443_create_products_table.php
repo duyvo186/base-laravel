@@ -18,7 +18,6 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('content');
-            $table->integer('menu_id');
             $table->integer('price')->nullable();
             $table->integer('price_sale')->nullable();
             $table->integer('active');

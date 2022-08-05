@@ -5,21 +5,19 @@
         <ul>
             @foreach($invoices as $invoice)
             @endforeach
-            <form action="{{route('admin.customer.update', $invoice->invoice->customer->id)}}" method="POST">
+            <form action="{{route('admin.invoice.update', $invoice->invoice->id)}}" method="POST">
                 @method('PUT')
                 @csrf
                 <li>Customer Name:
-                    <select name="name">
+                    <select name="id">
                         <option>{{$invoice->invoice->customer->name}}</option>
 
                         @foreach($customers as $customer)
 
-                            <option>{{$customer->name}}</option>
+                            <option value="{{$customer->id}}">{{$customer->name}}</option>
                         @endforeach
                     </select>
                 </li>
-                <li>Customer Address: <input name="address" value="{{$invoice->invoice->customer->address}}"/></li>
-                <li>Customer Email: <input name="email" value="{{$invoice->invoice->customer->email}}"/></li>
         </ul>
         <button style="float: right;margin-left: 20px;" class="btn btn-primary" type="submit">Update Info Customer
         </button>

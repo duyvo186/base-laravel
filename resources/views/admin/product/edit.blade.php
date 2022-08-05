@@ -30,7 +30,19 @@
                 <div class="valid-feedback">Looks good!</div>
             </div>
         </div>
-
+        <div class="col-md-6">
+            <div class="form-outline">
+                <label for="validationCustom01" class="form-label" for="menu_id">Menu</label>
+                {{--                <input type="text" class="form-control" id="validationCustom01" name="menu" id="menu"  required />--}}
+                <select class="form-control" name="menu_id">
+                    @foreach($categories as $category)
+                        <option
+                            value="{{$category->id}}" {{$category->menu_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                    @endforeach
+                </select>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+        </div>
         <div class="col-md-12">
             <div class="form-outline">
                 <label for="validationCustom01" class="form-label">Content</label>

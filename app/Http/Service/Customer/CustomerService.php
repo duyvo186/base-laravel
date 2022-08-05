@@ -54,9 +54,16 @@ class CustomerService
             return false;
         }
     }
+
     public function destroy($id)
     {
         return $this->customerInterface->delete($id);
+    }
+
+    public function filterSearch($request)
+    {
+        $valueSearch = '%' . $request->name . '%';
+        return $this->customerInterface->filterSearchRepository($valueSearch);
     }
 
 }

@@ -29,7 +29,7 @@
                 <td>{!! \App\Helpers\Helper::active($product->active) !!}</td>
                 <td>{{$product->updated_at}} </td>
                 <td>&nbsp;</td>
-                <td>
+                <td style="width: 300px!important;" >
                     {{--               <button type="button" onclick="removeRow({{$product->id}},'{{route('admin.product.destroy')}}')" class="btn btn-danger">Xóa</button>--}}
                     <form action="{{route('admin.product.destroy',$product->id)}}" method="post">
 

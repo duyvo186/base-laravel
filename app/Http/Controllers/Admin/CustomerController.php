@@ -66,12 +66,26 @@ class CustomerController extends Controller
         ]);
         return redirect()->back();
     }
+
     public function destroy($id)
     {
         $result = $this->customerService->destroy($id);
-        if($result)
-        {
+        if ($result) {
+            response()->json([
+                'success' => [
+                    'categorySuccess' => 'Delete Success'
+                ],
+                'result' => $result,
+            ]);
             return redirect()->back();
         }
+    }
+
+    public function filterSearch(Request $request)
+    {
+        return view('admin.customer.search', [
+            'title' => __('text.customer.title.customerSearch'),
+            'customers' => $this->customerService->filterSearch($request),
+        ]);
     }
 }

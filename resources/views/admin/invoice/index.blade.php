@@ -35,7 +35,7 @@
                         <p class="text-primary">Complete<p>
                     @endif
                 </td>
-                <td>
+                <td style="width: 300px!important;" >
                     <form action="{{route('admin.invoice.destroy',$invoice->id)}}" method="post">
 
                         @method('Delete')

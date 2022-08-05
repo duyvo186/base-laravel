@@ -23,6 +23,7 @@ class InvoiceProductController extends Controller
         $this->invoiceProductService = $invoiceProductService;
         $this->customerService = $customerService;
         $this->productService = $productService;
+
     }
 
     public function edit($invoiceId)
@@ -44,6 +45,7 @@ class InvoiceProductController extends Controller
 
     public function show($id)
     {
+
         return view('admin.invoice.detail', [
             'title' => __('text.invoice.title.view'),
             'invoices' => $this->invoiceProductService->show($id),
@@ -51,6 +53,10 @@ class InvoiceProductController extends Controller
         ]);
     }
 
+    public function update($id)
+    {
+        return $this->invoiceProductService->update($id);
+    }
     public function destroy($id)
     {
         return $result = $this->invoiceProductService->destroy($id);

@@ -38,7 +38,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
             Route::get('','MainController@index')->name('home');
 
             // Two Service: Upload Product, Invoice Search
-            Route::get('search', 'InvoiceController@filterSearch')->name('invoice.search');
+            Route::get('invoice/search', 'InvoiceController@filterSearch')->name('invoice.search');
+            Route::get('customer/search', 'CustomerController@filterSearch')->name('customer.search');
             Route::post('upload/services', 'UploadController@store');
 
             // Four main resource

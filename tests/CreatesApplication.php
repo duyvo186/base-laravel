@@ -4,7 +4,7 @@ namespace Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 
-trait CreatesApplication
+trait CreatesApplication 
 {
     /**
      * Creates the application.
@@ -13,9 +13,11 @@ trait CreatesApplication
      */
     public function createApplication()
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
+        putenv('DB_DEFAULT=mysql_test');
 
-        $app->make(Kernel::class)->bootstrap();
+        $app = require __DIR__ . '/../bootstrap/app.php';
+
+        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
 
         return $app;
     }

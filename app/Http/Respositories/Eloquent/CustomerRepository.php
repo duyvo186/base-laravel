@@ -27,4 +27,8 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     {
         return $this->model->with('invoices')->where('id', $customerId)->get();
     }
+    public function filterSearchRepository($valueSearch)
+    {
+        return $this->model->Where('name','LIKE',$valueSearch)->get();
+    }
 }

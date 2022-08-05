@@ -5,19 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Http\Requests\CreateProductRequest;
+use App\Http\Service\Category\CategoryService;
 use App\Http\Service\Product\ProductAdminService;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     protected $productService;
+    protected $categoryService;
 
     /**
      * @param $productService
      */
-    public function __construct(ProductAdminService $productService)
+    public function __construct(ProductAdminService $productService, CategoryService $categoryService)
     {
         $this->productService = $productService;
+        $this->categoryService = $categoryService;
     }
 
     public function index()
@@ -25,7 +28,7 @@ class ProductController extends Controller
         return view('admin.product.list', [
             'title' => __('text.products.title.index'),
             'products' => $this->productService->getAll(),
-            'categories' => $this->productService->getCategory(),
+            'categories' => $this->categoryService->getByConditions(),
         ]);
     }
 
@@ -33,7 +36,7 @@ class ProductController extends Controller
     {
         return view('admin.product.add', [
             'title' => __('text.products.title.create'),
-            'categories' => $this->productService->getCategory()
+            'categories' => $this->categoryService->getByConditions()
         ]);
     }
 
@@ -54,7 +57,7 @@ class ProductController extends Controller
         return view('admin.product.edit', [
             'title' => __('text.products.title.edit'),
             'product' => $this->productService->show($id),
-            'categories' => $this->productService->getCategory(),
+            'categories' => $this->categoryService->getByConditions(),
         ]);
     }
 

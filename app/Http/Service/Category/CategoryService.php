@@ -27,10 +27,21 @@ class CategoryService
         return $this->categoryRepository->getAll();
     }
 
+    public function getByConditions()
+    {
+        return $this->categoryRepository->getByConditions(['active' => 1]);
+    }
+
     public function create($request)
     {
         try {
-            $this->categoryRepository->insert($request->all());
+            $items = [
+                'name' => $request->name,
+                'description'=> $request->description,
+                'content' => $request->content,
+                'status' => $request->status,
+           ];
+            $this->categoryRepository->insert($items);
             Session::flash('success', 'Your new category have created');
             return true;
         } catch (\Exception $err) {

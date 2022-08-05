@@ -17,11 +17,6 @@ class ProductAdminService extends ServiceProvider
         $this->productRepository = $productRepository;
     }
 
-    public function getCategory()
-    {
-        return $this->productRepository->getByConditions(['active' => 1]);
-    }
-
     public function getAll()
     {
         return $this->productRepository->getAll();

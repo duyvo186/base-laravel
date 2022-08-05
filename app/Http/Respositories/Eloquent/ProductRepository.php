@@ -4,7 +4,6 @@ namespace App\Http\Respositories\Eloquent;
 
 use App\Http\Respositories\ProductRepositoryInterface;
 use App\Models\Product;
-use Illuminate\Database\Eloquent\Model;
 
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {

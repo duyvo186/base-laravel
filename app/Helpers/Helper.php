@@ -16,7 +16,7 @@ class Helper
                            <td> ' . $category->active . ' </td>
                            <td> ' . $category->updated_at . ' </td>
                            <td>&nbsp;</td>
-                           <td>
+                           <td style="width: 300px!important;" >
 
                            <form action="category/' . $category->id . '"  method="post">
                           ' . method_field('DELETE') . '
